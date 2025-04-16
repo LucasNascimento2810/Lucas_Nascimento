@@ -1,4 +1,4 @@
-<h1 align="center">Olá! Eu sou o Kakaroto 👋</h1>
+<h1 align="center">Olá! Eu sou o Lucas 👋</h1>
 
 <p align="center">
   💻 Desenvolvedor Front-End & Mobile | 🚀 Apaixonado por tecnologia e criação digital
