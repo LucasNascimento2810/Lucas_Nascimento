@@ -99,11 +99,11 @@
     const article = make("article","real-case"+(project.featured?" featured":""));
     const visual = make("button","real-case-visual");
     visual.type = "button";
-    visual.setAttribute("aria-label","Ver detalhes do projeto "+project.title);
+    
     if (safeMedia(project.cover)) {
       const img = make("img");
       img.src = project.cover;
-      img.alt = "Capa do projeto "+project.title;
+      img.alt = "";
       img.loading = index < 2 ? "eager" : "lazy";
       img.decoding = "async";
       img.onerror = () => {img.remove();visual.prepend(make("span","real-case-placeholder",project.title));};
@@ -111,8 +111,11 @@
     } else {
       visual.append(make("span","real-case-placeholder",project.title));
     }
-    visual.append(make("span","real-case-index",String(index+1).padStart(2,"0") + " / " + String(projects.length).padStart(2,"0")));
+    const indexText=make("span","real-case-index",String(index+1).padStart(2,"0") + " / " + String(projects.length).padStart(2,"0"));
+    indexText.setAttribute("aria-hidden","true");
+    visual.append(indexText);
     visual.append(make("span","real-case-view","VER CASE  ↗"));
+    visual.append(make("span","visually-hidden"," — "+project.title));
     const footer = make("div","real-case-foot");
     const body = make("div","real-case-body");
     body.append(make("small","",project.category || "PROJETO DIGITAL"),make("h3","",project.title),make("p","",project.description));

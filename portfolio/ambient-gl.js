@@ -5,6 +5,7 @@
   'use strict';
   const visual = document.getElementById('visual');
   if (!visual || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(max-width: 800px)').matches) return;
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) return;
   const canvas = document.createElement('canvas');
   canvas.className = 'gpu-hero';
   canvas.setAttribute('aria-hidden', 'true');
@@ -41,7 +42,7 @@
     ' vec3 ro=vec3(0.,0.,4.15);',
     ' vec3 rd=normalize(vec3(uv*1.67,-2.2));',
     ' float t=0.; bool hit=false;',
-    ' for(int i=0;i<48;i++){ float d=sdf(ro+rd*t); if(d<.003){hit=true;break;} t+=max(d*.85,.005);if(t>7.5)break; }',
+    ' for(int i=0;i<40;i++){ float d=sdf(ro+rd*t); if(d<.003){hit=true;break;} t+=max(d*.85,.005);if(t>7.5)break; }',
     ' if(hit){',
     '  vec3 p=ro+rd*t; vec3 n=normalAt(p);',
     '  vec3 light=normalize(vec3(-.4,.7,1.2));',
@@ -88,9 +89,9 @@
   const pointer={x:0,y:0};
   const resize=()=>{
     const rect=visual.getBoundingClientRect();
-    const ratio=Math.min(window.devicePixelRatio||1,1.3);
-    canvas.width=Math.min(1000,Math.max(1,Math.round(rect.width*ratio)));
-    canvas.height=Math.min(850,Math.max(1,Math.round(rect.height*ratio)));
+    const ratio=Math.min(window.devicePixelRatio||1,1);
+    canvas.width=Math.min(800,Math.max(1,Math.round(rect.width*ratio)));
+    canvas.height=Math.min(650,Math.max(1,Math.round(rect.height*ratio)));
     gl.viewport(0,0,canvas.width,canvas.height);
   };
   resize();
@@ -104,7 +105,7 @@
   window.addEventListener('resize',onResize,{passive:true});
   const frame=(time)=>{
     raf=requestAnimationFrame(frame);
-    if (!inView || document.hidden || time-last<33) return;
+    if (!inView || document.hidden || time-last<50) return;
     last=time;
     gl.uniform2f(resolution,canvas.width,canvas.height);
     gl.uniform2f(mouseUniform,pointer.x,pointer.y);

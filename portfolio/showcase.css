@@ -77,3 +77,30 @@
 .case-media-note{font-size:12px!important;color:#8da38b!important;margin:0 0 20px!important}
 .case-login-note{font-size:11px;color:#b7c8ab;margin-left:15px}
 @media(max-width:740px){.real-project-grid{grid-template-columns:1fr}.real-case.featured{grid-column:auto}.real-case-foot,.real-case.featured .real-case-foot{min-height:0;padding:23px 21px;gap:15px}.real-case-body p{font-size:12px}.real-case-actions{gap:8px}.real-case-view{right:13px;bottom:13px}.case-details,.case-highlights{grid-template-columns:1fr}.case-login-note{display:block;margin:14px 0 0}.real-case-status{margin-top:13px}}
+
+/* Auditoria: navegação, fallback, foco, contraste e leitura mobile */
+section[id]{scroll-margin-top:90px}
+header nav a{display:inline-flex;align-items:center;min-height:40px}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #b8f47e;outline-offset:3px}
+.real-case-visual{touch-action:manipulation}
+.fallback-card{background:#f5f8f0;min-width:0}
+.fallback-card:first-child{grid-column:1/-1}
+.fallback-image{display:block;overflow:hidden;background:#172019;height:clamp(270px,28vw,470px)}
+.fallback-card:first-child .fallback-image{height:clamp(340px,39vw,580px)}
+.fallback-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.fallback-image:hover img{transform:scale(1.03)}
+.fallback-info{padding:30px;color:#203022}
+.fallback-info small{font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.14em;color:#52724d}
+.fallback-info h3{font:700 clamp(27px,3.2vw,46px) 'Space Grotesk',sans-serif;letter-spacing:-.06em;margin:13px 0}
+.fallback-info p{font-size:14px;line-height:1.7;color:#52664e}
+.fallback-info details{border-top:1px solid #c5d0c1;padding:16px 0;margin:17px 0}
+.fallback-info summary{font:700 12px 'Space Grotesk',sans-serif;cursor:pointer}
+.fallback-cta{display:inline-flex;padding:15px 18px;background:#19281b;color:#d4fc79;font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.07em}
+.portfolio-modal{overscroll-behavior:contain}
+.real-case-body p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.light .heading em{color:#4f743d}
+.light .aside{color:#3d5138}
+@media(max-width:750px){header nav a{min-height:44px;font-size:13px}.fallback-card:first-child{grid-column:auto}.fallback-image,.fallback-card:first-child .fallback-image{height:260px}.fallback-info{padding:22px}.hero-bottom{gap:10px}.nav-cta{font-size:10px}}
+@media(max-width:400px){.hero h1{font-size:12.6vw}.contact-bottom{flex-direction:column;gap:24px}.contact-bottom p{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.fallback-image img{transition:none!important}}
