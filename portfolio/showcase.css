@@ -1,0 +1,35 @@
+
+/* Galeria de cases reais: só entra em uso quando houver projetos aprovados. */
+.real-project-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.real-case {background:#ecf2e5;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.3,1);min-width:0}
+.real-case.featured {grid-column:span 2}
+.real-case:hover {transform:translateY(-5px)}
+.real-case-visual {height:clamp(240px,29vw,450px);position:relative;overflow:hidden;background:radial-gradient(circle at 60% 20%,#53694a,#172118 80%);cursor:pointer}
+.real-case.featured .real-case-visual {height:clamp(300px,39vw,600px)}
+.real-case-visual>img {width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.8,.25,1)}
+.real-case:hover .real-case-visual>img {transform:scale(1.045)}
+.real-case-placeholder {height:100%;display:grid;place-items:center;color:#d4fc79;font:700 clamp(30px,5vw,80px) 'Space Grotesk',sans-serif;letter-spacing:-.09em}
+.real-case-index {position:absolute;left:26px;top:25px;color:#ecffd4;background:#14201acc;backdrop-filter:blur(8px);border:1px solid #d4fc792d;padding:10px 14px;font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.1em}
+.real-case-foot {min-height:165px;padding:26px 30px 30px;background:#f6f9f0;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.real-case-body small {font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.12em;color:#587050}
+.real-case-body h3 {font:700 clamp(25px,3vw,41px) 'Space Grotesk',sans-serif;letter-spacing:-.07em;color:#142014;margin:10px 0}
+.real-case-body p {font-size:13px;line-height:1.65;color:#64745b;max-width:520px;margin:0}
+.real-case-button {width:50px;height:50px;border:1px solid #abbda3;background:transparent;border-radius:50%;font-size:25px;color:#142014;cursor:pointer;flex-shrink:0;transition:background .2s,color .2s}
+.real-case-button:hover,.real-case-button:focus-visible {background:#142014;color:#d4fc79}
+.portfolio-modal {padding:0;border:1px solid #728367;background:#131b15;color:#eff4e9;width:min(94vw,1050px);max-height:92vh;overflow:auto;box-shadow:0 25px 120px #000b}
+.portfolio-modal::backdrop {background:#030904d9;backdrop-filter:blur(12px)}
+.portfolio-modal-shell {position:relative}
+.portfolio-modal-close {position:sticky;top:16px;float:right;margin:16px 18px -60px 0;z-index:3;border:1px solid #ffffff38;background:#121913e8;color:#edffe1;padding:14px 18px;font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.1em;cursor:pointer}
+.portfolio-modal-close:hover {background:#d4fc79;color:#162016}
+.portfolio-modal-media {min-height:220px;background:#1f2c21}
+.portfolio-modal-media img,.portfolio-modal-media video {display:block;width:100%;max-height:65vh;object-fit:contain}
+.media-empty {min-height:320px;display:grid;place-items:center;font:700 17px 'Space Grotesk',sans-serif;color:#b3d98c}
+.portfolio-modal-info {padding:33px clamp(22px,5vw,66px) 48px}
+.modal-eyebrow {color:#c5f68d;font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.15em}
+.portfolio-modal-info h3 {font:700 clamp(38px,6vw,70px) 'Space Grotesk',sans-serif;letter-spacing:-.075em;margin:16px 0}
+.portfolio-modal-info p {max-width:720px;color:#b8c5b5;line-height:1.85;font-size:15px}
+.modal-technologies {display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+.modal-technologies span {font:700 10px 'Space Grotesk',sans-serif;border:1px solid #53684b;padding:9px 12px}
+.modal-link {display:inline-block;background:#d4fc79;color:#142014;padding:16px 22px;margin-top:10px;font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.1em}
+@media(max-width:740px) {.real-project-grid {grid-template-columns:1fr}.real-case.featured {grid-column:auto}.real-case-visual,.real-case.featured .real-case-visual {height:260px}.real-case-foot {padding:21px 22px;min-height:145px}.real-case-button {width:43px;height:43px}}
+@media(prefers-reduced-motion:reduce) {.real-case,.real-case-visual>img {transition:none!important}}
