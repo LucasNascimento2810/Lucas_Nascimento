@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" role="img" aria-label="Representação ilustrativa do dashboard MenuZap, sem dados pessoais">
+<defs><linearGradient id="back" x2="1" y2="1"><stop stop-color="#d1e8d4"/><stop offset="1" stop-color="#edf4e6"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#1a3528" flood-opacity=".25"/></filter></defs>
+<rect width="1500" height="900" fill="url(#back)"/><circle cx="1320" cy="110" r="390" fill="#a7e3aa" opacity=".36"/>
+<g filter="url(#shadow)"><rect x="92" y="105" width="1316" height="690" rx="23" fill="#fafbf7"/><rect x="92" y="105" width="260" height="690" rx="23" fill="#eff4ec"/><path d="M352 105V795" stroke="#d7e3d6" stroke-width="2"/>
+<rect x="116" y="139" width="40" height="40" rx="11" fill="#123623"/><text x="128" y="165" font-family="Arial" font-size="21" font-weight="bold" fill="#a6e6af">M</text><text x="167" y="167" font-family="Arial" font-size="26" font-weight="700" fill="#10261c">MenuZap</text>
+<g font-family="Arial" font-size="18" fill="#54705c"><text x="128" y="260">VISÃO GERAL</text><text x="128" y="321">PEDIDOS</text><text x="128" y="382">CARDÁPIO</text><text x="128" y="443">COZINHA</text><text x="128" y="504">ENTREGAS</text><text x="128" y="565">CLIENTES</text></g>
+<rect x="109" y="224" width="226" height="57" rx="12" fill="#d4e9d6"/><text x="127" y="260" font-family="Arial" font-size="18" font-weight="700" fill="#12432c">PAINEL</text>
+<text x="399" y="182" fill="#2e6643" font-family="Arial" font-weight="700" font-size="16">OPERAÇÃO MENUZAP</text><text x="399" y="235" fill="#0d2a1b" font-family="Arial" font-weight="700" font-size="39">Tudo para o restaurante acontecer.</text><text x="399" y="275" fill="#758576" font-family="Arial" font-size="18">Do pedido ao preparo, da cozinha até a entrega.</text>
+<rect x="1180" y="157" width="177" height="52" rx="12" fill="#0e3422"/><text x="1207" y="190" fill="#e2f9e7" font-family="Arial" font-size="16" font-weight="700">+ NOVO PEDIDO</text>
+<g fill="#fff" stroke="#dae4d8" stroke-width="2"><rect x="397" y="315" width="292" height="148" rx="15"/><rect x="710" y="315" width="292" height="148" rx="15"/><rect x="1025" y="315" width="332" height="148" rx="15"/></g>
+<g fill="#62816d" font-family="Arial" font-size="19"><text x="421" y="355">Pedidos recebidos</text><text x="734" y="355">Em preparo</text><text x="1049" y="355">Em rota</text></g>
+<g fill="#123a27" font-family="Arial" font-size="29" font-weight="700"><text x="421" y="413">Organizados</text><text x="734" y="413">Na cozinha</text><text x="1049" y="413">Até a entrega</text></g>
+<rect x="397" y="490" width="960" height="270" rx="16" fill="#fff" stroke="#d7e4d6" stroke-width="2"/>
+<text x="424" y="537" fill="#173923" font-family="Arial" font-size="23" font-weight="700">Fluxo de pedidos</text>
+<g font-family="Arial" font-size="16" font-weight="700" text-anchor="middle"><rect x="431" y="586" width="177" height="79" rx="13" fill="#e0f4e3"/><text x="519" y="632" fill="#1f6032">RECEBIDO</text><rect x="666" y="586" width="177" height="79" rx="13" fill="#fff3d6"/><text x="755" y="632" fill="#816214">EM PREPARO</text><rect x="899" y="586" width="177" height="79" rx="13" fill="#ddedff"/><text x="987" y="632" fill="#2863a4">DESPACHO</text><rect x="1130" y="586" width="188" height="79" rx="13" fill="#daf3e0"/><text x="1224" y="632" fill="#257444">ENTREGUE</text></g>
+<g stroke="#739d81" stroke-width="4" fill="none"><path d="M615 624h41m-13 -12 13 12-13 12M850 624h40m-13 -12 13 12-13 12M1086 624h34m-13 -12 13 12-13 12"/></g>
+</g><text x="110" y="843" font-family="Arial" fill="#315f3b" font-size="17">CAPA DEMONSTRATIVA · SEM DADOS DE CLIENTES</text>
+</svg>

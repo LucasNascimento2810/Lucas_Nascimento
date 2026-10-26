@@ -1,129 +1,143 @@
-/* Renderização de cases reais e visualizador de imagens/vídeos.
-   Não altera os mockups enquanto PORTFOLIO_PROJECTS estiver vazio. */
+/* Galeria de cases com acessibilidade: conteúdo editável em showcase-data.js */
 (() => {
-  'use strict';
-  const entries = Array.isArray(window.PORTFOLIO_PROJECTS)
-    ? window.PORTFOLIO_PROJECTS.filter(p => p && p.title && p.description)
-    : [];
-  if (!entries.length) return;
-  const grid = document.querySelector('.project-grid');
-  if (!grid) return;
-  grid.classList.add('real-project-grid');
-  grid.replaceChildren();
-  const note = document.querySelector('.case-note');
-  if (note) {
-    note.replaceChildren();
-    const mark = document.createElement('span');
-    mark.className = 'case-mark';
-    mark.setAttribute('aria-hidden', 'true');
-    mark.textContent = '✳';
-    const content = document.createElement('span');
-    const heading = document.createElement('strong');
-    heading.textContent = 'CASES & PROJETOS';
-    content.append(heading, document.createTextNode(' — Projetos selecionados com imagens e demonstrações. Cada trabalho tem escopo e contexto próprios.'));
-    note.append(mark, content);
+  "use strict";
+  const data = Array.isArray(window.PORTFOLIO_PROJECTS) ? window.PORTFOLIO_PROJECTS : [];
+  const projects = data.filter(p => p && p.title && p.description);
+  const grid = document.querySelector(".project-grid");
+  if (!grid || !projects.length) return;
+  const safeMedia = value => typeof value === "string" && (/^(\.\/|\/)[a-zA-Z0-9/_\-.]+$/.test(value) || /^https:\/\//i.test(value));
+  const make = (tag, className, content) => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (content !== undefined) element.textContent = String(content);
+    return element;
+  };
+  function externalLink(url, label, className = "case-external") {
+    if (typeof url !== "string" || !/^https:\/\//.test(url)) return null;
+    const anchor = make("a", className, label);
+    anchor.href = url;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    return anchor;
   }
-  const make = (tag, cls, txt) => {
-    const el = document.createElement(tag);
-    if (cls) el.className = cls;
-    if (txt !== undefined) el.textContent = String(txt);
-    return el;
-  };
-  const modal = make('dialog', 'portfolio-modal');
-  modal.setAttribute('aria-label', 'Detalhes do projeto');
-  const modalShell = make('div', 'portfolio-modal-shell');
-  const close = make('button', 'portfolio-modal-close', 'FECHAR ×');
-  close.type = 'button';
-  close.setAttribute('aria-label', 'Fechar detalhes do projeto');
-  const mediaBox = make('div', 'portfolio-modal-media');
-  const infoBox = make('div', 'portfolio-modal-info');
-  modalShell.append(close, mediaBox, infoBox);
-  modal.append(modalShell);
+  grid.classList.add("real-project-grid");
+  grid.replaceChildren();
+
+  const modal = make("dialog", "portfolio-modal");
+  modal.setAttribute("aria-label", "Detalhes do projeto selecionado");
+  const shell = make("div", "portfolio-modal-shell");
+  const close = make("button", "portfolio-modal-close", "FECHAR ×");
+  close.type = "button";
+  close.setAttribute("aria-label", "Fechar detalhes");
+  const modalMedia = make("div", "portfolio-modal-media");
+  const modalInfo = make("div", "portfolio-modal-info");
+  shell.append(close, modalMedia, modalInfo);
+  modal.append(shell);
   document.body.append(modal);
-  let restoreFocus = null;
-  const end = () => {
-    if (modal.open) modal.close();
-    mediaBox.replaceChildren();
-    if (restoreFocus) restoreFocus.focus();
-  };
-  close.addEventListener('click', end);
-  modal.addEventListener('click', event => { if (event.target === modal) end(); });
-  modal.addEventListener('close', () => { mediaBox.replaceChildren(); if (restoreFocus) restoreFocus.focus(); });
-  const validMedia = value => typeof value === 'string' && (/^(\.\/|\/)[a-zA-Z0-9/_\-.]+$/.test(value) || /^https:\/\//i.test(value));
-  function openProject(project, trigger) {
-    restoreFocus = trigger;
-    mediaBox.replaceChildren(); infoBox.replaceChildren();
-    if (validMedia(project.video)) {
-      const video = make('video');
+  let lastFocus = null;
+  function closeModal() {if (modal.open) modal.close();}
+  close.addEventListener("click", closeModal);
+  modal.addEventListener("click", evt => {if (evt.target === modal) closeModal();});
+  modal.addEventListener("close", () => {
+    modalMedia.querySelectorAll("video").forEach(video => video.pause());
+    modalMedia.replaceChildren();
+    if (lastFocus && lastFocus.isConnected) lastFocus.focus();
+  });
+  function detail(label, content) {
+    if (!content) return null;
+    const section = make("section", "case-detail");
+    section.append(make("h4", "", label), make("p", "", content));
+    return section;
+  }
+  function show(project, focusEl) {
+    lastFocus = focusEl;
+    modalMedia.replaceChildren();
+    modalInfo.replaceChildren();
+    if (safeMedia(project.video)) {
+      const video = make("video");
       video.src = project.video;
       video.controls = true;
-      video.autoplay = true;
       video.playsInline = true;
-      if (validMedia(project.cover)) video.poster = project.cover;
-      mediaBox.append(video);
-    } else if (validMedia(project.cover)) {
-      const img = make('img');
+      video.preload = "metadata";
+      if (safeMedia(project.cover)) video.poster = project.cover;
+      modalMedia.append(video);
+    } else if (safeMedia(project.cover)) {
+      const img = make("img");
       img.src = project.cover;
-      img.alt = 'Imagem do projeto ' + project.title;
-      mediaBox.append(img);
-    } else {
-      mediaBox.append(make('div', 'media-empty', 'PRÉVIA DO PROJETO'));
+      img.alt = "Imagem de apresentação de " + project.title;
+      modalMedia.append(img);
     }
-    infoBox.append(
-      make('span', 'modal-eyebrow', project.category || 'DESENVOLVIMENTO'),
-      make('h3', '', project.title),
-      make('p', '', project.description)
-    );
-    const tech = Array.isArray(project.technologies) ? project.technologies : [];
-    if (tech.length) {
-      const row = make('div', 'modal-technologies');
-      tech.slice(0,12).forEach(value => row.append(make('span', '', value)));
-      infoBox.append(row);
+    const eyebrow = make("div", "modal-eyebrow", (project.category || "DESENVOLVIMENTO") + (project.status ? "  ·  " + project.status : ""));
+    modalInfo.append(eyebrow, make("h3", "", project.title), make("p", "case-intro", project.description));
+    const row = make("div", "case-details");
+    const challenge = detail("O DESAFIO",project.challenge);
+    const solution = detail("A SOLUÇÃO",project.solution);
+    if (challenge) row.append(challenge);
+    if (solution) row.append(solution);
+    modalInfo.append(row);
+    if (project.role) modalInfo.append(make("p", "case-role", "ATUAÇÃO NO PROJETO  /  " + project.role));
+    if (Array.isArray(project.highlights) && project.highlights.length) {
+      modalInfo.append(make("h4", "case-subtitle", "O QUE FOI DESENVOLVIDO"));
+      const highlights = make("ul", "case-highlights");
+      project.highlights.forEach(t => highlights.append(make("li", "", t)));
+      modalInfo.append(highlights);
     }
-    if (typeof project.url === 'string' && /^https:\/\//i.test(project.url)) {
-      const link = make('a', 'modal-link', 'VISITAR PROJETO ↗');
-      link.href = project.url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      infoBox.append(link);
+    if (Array.isArray(project.technologies) && project.technologies.length) {
+      const tech = make("div", "modal-technologies");
+      project.technologies.forEach(label => tech.append(make("span", "", label)));
+      modalInfo.append(tech);
     }
-    if (typeof modal.showModal === 'function') modal.showModal();
-    else modal.setAttribute('open','');
+    if (project.mediaNote) modalInfo.append(make("p","case-media-note",project.mediaNote));
+    const link = externalLink(project.url, project.linkLabel || "VISITAR PROJETO ↗", "modal-link");
+    if (link) modalInfo.append(link);
+    if (project.requiresLogin) modalInfo.append(make("span","case-login-note","O acesso a algumas telas exige autenticação."));
+    if (typeof modal.showModal === "function") modal.showModal();
+    else modal.setAttribute("open","");
     close.focus();
   }
-  entries.forEach((project, index) => {
-    const article = make('article', 'real-case' + (project.featured ? ' featured' : ''));
-    const media = make('div', 'real-case-visual');
-    if (validMedia(project.cover)) {
-      const picture = make('img');
-      picture.src = project.cover;
-      picture.alt = 'Prévia de ' + project.title;
-      picture.loading = index < 2 ? 'eager' : 'lazy';
-      picture.decoding = 'async';
-      media.append(picture);
+  projects.forEach((project,index) => {
+    const article = make("article","real-case"+(project.featured?" featured":""));
+    const visual = make("button","real-case-visual");
+    visual.type = "button";
+    visual.setAttribute("aria-label","Ver detalhes do projeto "+project.title);
+    if (safeMedia(project.cover)) {
+      const img = make("img");
+      img.src = project.cover;
+      img.alt = "Capa do projeto "+project.title;
+      img.loading = index < 2 ? "eager" : "lazy";
+      img.decoding = "async";
+      img.onerror = () => {img.remove();visual.prepend(make("span","real-case-placeholder",project.title));};
+      visual.append(img);
     } else {
-      media.append(make('div', 'real-case-placeholder', 'LN. / ' + String(index + 1).padStart(2,'0')));
+      visual.append(make("span","real-case-placeholder",project.title));
     }
-    media.append(make('span','real-case-index',String(index + 1).padStart(2,'0') + ' / ' + String(entries.length).padStart(2,'0')));
-    const foot = make('div','real-case-foot');
-    const body = make('div', 'real-case-body');
-    body.append(
-      make('small','',project.category || 'PROJETO DIGITAL'),
-      make('h3','',project.title),
-      make('p','',project.description)
-    );
-    const action = make('button', 'real-case-button', '↗');
-    action.type = 'button';
-    action.setAttribute('aria-label','Ver projeto '+ project.title);
-    foot.append(body, action);
-    article.append(media, foot);
-    const go = () => openProject(project, action);
-    action.addEventListener('click', go);
-    media.addEventListener('click', go);
-    media.setAttribute('role','button');
-    media.tabIndex = 0;
-    media.setAttribute('aria-label','Ver detalhes de ' + project.title);
-    media.addEventListener('keydown', ev => { if(ev.key === 'Enter' || ev.key === ' '){ev.preventDefault();go();} });
+    visual.append(make("span","real-case-index",String(index+1).padStart(2,"0") + " / " + String(projects.length).padStart(2,"0")));
+    visual.append(make("span","real-case-view","VER CASE  ↗"));
+    const footer = make("div","real-case-foot");
+    const body = make("div","real-case-body");
+    body.append(make("small","",project.category || "PROJETO DIGITAL"),make("h3","",project.title),make("p","",project.description));
+    const status = make("span","real-case-status",project.status || "");
+    body.append(status);
+    const actions=make("div","real-case-actions");
+    const more=make("button","real-case-button","↗");
+    more.type="button";
+    more.setAttribute("aria-label","Ver detalhes de "+project.title);
+    actions.append(more);
+    const outbound=externalLink(project.url,"VISITAR PROJETO ↗");
+    if (outbound) actions.append(outbound);
+    footer.append(body,actions);
+    article.append(visual,footer);
+    visual.addEventListener("click",()=>show(project,visual));
+    more.addEventListener("click",()=>show(project,more));
     grid.append(article);
   });
+  const note = document.querySelector(".case-note");
+  if (note) {
+    note.replaceChildren();
+    note.append(make("span","case-mark","✳"));
+    const line=make("span");
+    line.append(make("strong","","PROJETOS REAIS, CONTEXTOS DIFERENTES."));
+    line.append(document.createTextNode(" Conheça as entregas, o raciocínio técnico e os produtos em diferentes estágios de evolução."));
+    note.append(line);
+  }
 })();

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" role="img" aria-label="Representação ilustrativa da interface do AMMI CRM, com dados fictícios">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#203152"/><stop offset="1" stop-color="#090f1a"/></linearGradient><linearGradient id="line" x2="1" y2="0"><stop stop-color="#357cf7"/><stop offset="1" stop-color="#8acaff"/></linearGradient><filter id="sh"><feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#02050a" flood-opacity=".6"/></filter></defs>
+<rect width="1500" height="900" fill="url(#bg)"/><circle cx="1180" cy="90" r="380" fill="#2e65c7" opacity=".18"/><circle cx="120" cy="850" r="390" fill="#436ae9" opacity=".11"/>
+<g filter="url(#sh)"><rect x="112" y="95" width="1276" height="727" rx="18" fill="#0d141e" stroke="#526981" stroke-opacity=".45"/><rect x="112" y="95" width="260" height="727" rx="18" fill="#0a111a"/><path d="M372 95V822" stroke="#273344"/><path d="M372 163H1388" stroke="#293747"/>
+<rect x="144" y="125" width="32" height="32" rx="10" fill="#154b98"/><text x="156" y="148" font-size="16" font-weight="bold" fill="#a7d6ff" font-family="Arial">A</text><text x="188" y="147" fill="#e5f0ff" font-size="24" font-family="Arial" font-weight="700">AMMI CRM</text>
+<g font-family="Arial" font-size="16" fill="#8294a7"><text x="150" y="224">VISÃO GERAL</text><text x="150" y="283">FUNIL COMERCIAL</text><text x="150" y="342">OPORTUNIDADES</text><text x="150" y="401">AGENDA</text><text x="150" y="460">CONTATOS</text><text x="150" y="519">RELATÓRIOS</text></g>
+<rect x="128" y="185" width="225" height="60" rx="12" fill="#16305c"/><text x="150" y="223" font-family="Arial" font-weight="700" fill="#e1eeff" font-size="17">DASHBOARD</text>
+<text x="416" y="140" font-family="Arial" font-weight="700" font-size="17" fill="#8da4bf">ÁREA COMERCIAL / VISÃO GERAL</text>
+<text x="420" y="222" font-family="Arial" font-weight="700" font-size="39" fill="#eef5ff">Seu trabalho, em perspectiva.</text>
+<text x="420" y="262" font-family="Arial" font-size="18" fill="#9aabbc">Atividades, resultados e oportunidades em um só lugar.</text>
+<rect x="1205" y="202" width="136" height="45" rx="10" fill="#2e81fa"/><text x="1231" y="232" font-family="Arial" font-size="16" font-weight="700" fill="white">+ NOVO LEAD</text>
+<g><rect x="410" y="295" width="288" height="165" rx="16" fill="#18222e" stroke="#2b3c51"/><rect x="716" y="295" width="288" height="165" rx="16" fill="#18222e" stroke="#2b3c51"/><rect x="1022" y="295" width="319" height="165" rx="16" fill="#18222e" stroke="#2b3c51"/>
+<g font-family="Arial" font-size="18" fill="#b5c8dc"><text x="436" y="337">Pipeline comercial</text><text x="742" y="337">Próximas ações</text><text x="1050" y="337">Agenda da equipe</text></g><g font-family="Arial" font-size="36" font-weight="700" fill="#e8f4ff"><text x="436" y="399">Visão unificada</text><text x="742" y="399">Em foco</text><text x="1050" y="399">Organizada</text></g>
+</g>
+<rect x="410" y="484" width="931" height="290" rx="16" fill="#18222e" stroke="#2b3c51"/><text x="444" y="530" font-family="Arial" font-size="20" font-weight="700" fill="#eaf2fe">Evolução da operação</text><g stroke="#33445a" stroke-width="2"><path d="M444 577H1309M444 626H1309M444 675H1309M444 724H1309"/></g>
+<path d="M444 720L515 670L587 684L658 615L729 631L801 590L875 602L952 546L1033 570L1110 530L1188 542L1304 490" fill="none" stroke="url(#line)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#8cc8ff"><circle cx="952" cy="546" r="8"/><circle cx="1188" cy="542" r="8"/></g>
+</g><rect x="113" y="835" width="1274" height="33" rx="9" fill="#0c1420" opacity=".8"/><text x="137" y="858" font-family="Arial" font-size="16" fill="#b7c7d6">ILUSTRAÇÃO DA INTERFACE · SEM DADOS REAIS</text>
+</svg>
