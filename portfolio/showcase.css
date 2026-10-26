@@ -33,3 +33,10 @@
 .modal-link {display:inline-block;background:#d4fc79;color:#142014;padding:16px 22px;margin-top:10px;font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.1em}
 @media(max-width:740px) {.real-project-grid {grid-template-columns:1fr}.real-case.featured {grid-column:auto}.real-case-visual,.real-case.featured .real-case-visual {height:260px}.real-case-foot {padding:21px 22px;min-height:145px}.real-case-button {width:43px;height:43px}}
 @media(prefers-reduced-motion:reduce) {.real-case,.real-case-visual>img {transition:none!important}}
+
+/* GPU-assisted decorative object; CSS 3D remains the fallback. */
+.visual .gpu-hero {position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:.82;filter:drop-shadow(0 0 36px #a8e7693a)}
+.visual.gpu-active .poly {opacity:.33}
+.visual.gpu-active .ring {opacity:.75}
+.visual .art-label {z-index:4}
+@media(max-width:800px),(prefers-reduced-motion:reduce){.visual .gpu-hero{display:none!important}}
