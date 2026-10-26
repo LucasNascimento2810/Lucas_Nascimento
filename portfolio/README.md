@@ -1,61 +1,41 @@
-# Lucas Nascimento — Portfólio
+# Portfólio — Lucas Nascimento
 
-Site de apresentação Full Stack, responsivo e preparado para cases reais.
+Site de apresentação profissional de Lucas Nascimento, com animações leves, objeto 3D em WebGL (fallback CSS) e três cases reais.
 
-## Publicação na Vercel
+**Site público:** https://lucasnascimento.vercel.app/
 
-1. Abra https://vercel.com/new e conecte seu GitHub.
-2. Importe LucasNascimento2810/Lucas_Nascimento.
-3. Nome sugerido: lucas-nascimento-portfolio.
-4. Em Root Directory, selecione portfolio.
-5. Em Framework Preset, escolha Other (site HTML/CSS/JS estático).
-6. Deixe Build Command e Output Directory vazios e publique.
-7. Commits na branch main serão publicados automaticamente com a integração Git.
+## Cases apresentados
 
-Não requer npm, banco de dados, tokens ou variáveis de ambiente.
+1. **AMMI CRM** — sistema comercial: funil, tarefas, cadências, agenda e relatórios. Imagem ilustrativa, sem dados operacionais. Link: https://ammicrm.vercel.app/ (algumas telas exigem login).
+2. **Dra. Mariana Hassan** — site institucional entregue, com apresentação de serviços médicos e navegação responsiva. Fotografia usada é imagem pública da aplicação. Link: https://dramarianahassan.com.br/.
+3. **MenuZap** — produto próprio, SaaS em fase piloto para cardápio, pedidos, cozinha, despacho e fidelização. Capa ilustrativa, sem dados de clientes. Link: https://menuzap.vercel.app/.
 
-## Projetos reais: fotos e vídeos
+O conteúdo foi redigido sem métricas de resultados não verificadas e sem exibir dados pessoais de clientes.
 
-1. Coloque as capas .webp e vídeos .mp4 em portfolio/projects/.
-2. Edite portfolio/showcase-data.js e substitua o array vazio por objetos no formato:
+## Como atualizar os projetos
 
-```js
-window.PORTFOLIO_PROJECTS = [
-  {
-    id: 'meu-projeto',
-    title: 'Nome do projeto',
-    category: 'SISTEMA WEB / 2026',
-    description: 'O problema e a solução desenvolvida.',
-    cover: './projects/capa.webp',
-    video: './projects/demo.mp4', // opcional
-    technologies: ['React', 'Next.js', 'Supabase'],
-    url: 'https://link-publico.com', // opcional
-    featured: true
-  }
-];
-```
+Os cards são gerados a partir de `showcase-data.js`. Cada case inclui título, descrição, status, desafio, solução, funcionalidades, tecnologias, URL e imagem de capa. Os cards também têm detalhes expansíveis e links para o projeto.
 
-Quando a lista tiver projetos, o site troca os três mockups por uma galeria de cases reais, com detalhes, modal de imagem/vídeo e link para conhecer o projeto. Com lista vazia, os exemplos continuam identificados como conceituais. Não precisa reescrever o index.html.
+Capas editáveis: `projects/ammi-crm.svg` e `projects/menuzap.svg`. Para incluir novas fotos e vídeos, crie arquivos `.webp` e `.mp4` dentro de `projects/` e atualize o caminho no registro do projeto.
 
-### Mídia e privacidade
+**Privacidade:** sempre obtenha autorização para divulgar trabalhos de terceiros e oculte dados pessoais, números comerciais internos e credenciais antes de disponibilizar capturas de tela. As capas de sistemas não contêm dados operacionais reais.
 
-- Use capas otimizadas e vídeos compactados para não prejudicar o carregamento.
-- Remova dados sensíveis de telas, cadastros e gravações antes de publicar.
-- Peça autorização para divulgar marcas, prints e vídeos de clientes.
+## Arquivos
 
-## Organização
+- `index.html` — estrutura, conteúdo institucional, animações e SEO.
+- `showcase-data.js` — conteúdo dos três cases.
+- `showcase.js` — galeria interativa, modais e navegação.
+- `showcase.css` — layout responsivo e estilos dos cases.
+- `ambient-gl.js` — efeito 3D WebGL para desktop, respeitando movimento reduzido.
+- `projects/` — capas dos cases.
+- `favicon.svg` — identidade do site.
 
-- index.html: página principal
-- showcase-data.js: cadastro de projetos
-- showcase.js: galeria e modal de mídia
-- showcase.css: visual da galeria
-- ambient-gl.js: efeitos WebGL2, com fallback em CSS
-- favicon.svg: marca LN
+## Publicação
+
+Na Vercel, a raiz do projeto Git está configurada em `portfolio`, com Framework **Other** (HTML, CSS e JavaScript estáticos). Não requer banco, tokens ou dependências npm.
+
+O projeto deve apontar para `LucasNascimento2810/Lucas_Nascimento` na branch `main`. Atualizações nessa pasta disparam novos deploys de produção.
 
 ## Contato
 
-O CTA abre o LinkedIn até que o proprietário confirme WhatsApp ou e-mail de contato comercial. Não armazene segredos no GitHub.
-
-## Compatibilidade
-
-Efeitos WebGL são opcionais, desabilitados para celulares e para usuários que preferem movimento reduzido. Layout, navegação e CTA continuam funcionando sem WebGL.
+O botão atual direciona para o LinkedIn público de Lucas. O WhatsApp profissional pode ser incluído quando houver um número confirmado.
