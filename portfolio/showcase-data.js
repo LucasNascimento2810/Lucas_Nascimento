@@ -35,7 +35,7 @@ window.PORTFOLIO_PROJECTS = [
     highlights: ["Experiência responsiva", "Apresentação de serviços e procedimentos", "Identidade visual consistente", "Jornada de contato simplificada"],
     technologies: ["React", "TypeScript", "Vite", "UI responsiva"],
     cover: "https://raw.githubusercontent.com/LucasNascimento2810/Website_Mariana-ivan/main/src/assets/mariana-hero.webp",
-    mediaNote: "Fotografia utilizada no site original.",
+    mediaNote: "Fotografia do acervo visual público do projeto.",
     url: "https://dramarianahassan.com.br/",
     linkLabel: "ACESSAR SITE"
   },
