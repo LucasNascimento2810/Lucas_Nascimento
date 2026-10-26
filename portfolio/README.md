@@ -1,25 +1,61 @@
 # Lucas Nascimento — Portfólio
 
-Página visual premium para apresentação de serviços e projetos de desenvolvimento Full Stack. Código hospedado nesta pasta isolada do repositório público de perfil, sem modificar o README principal.
+Site de apresentação Full Stack, responsivo e preparado para cases reais.
 
 ## Publicação na Vercel
 
-1. Acesse https://vercel.com/new.
-2. Importe o GitHub `LucasNascimento2810/Lucas_Nascimento`.
-3. Escolha o nome `lucas-nascimento-portfolio`.
-4. Em **Root Directory**, selecione `portfolio`.
-5. Em **Framework Preset**, use `Other` (HTML/CSS/JS estático).
+1. Abra https://vercel.com/new e conecte seu GitHub.
+2. Importe LucasNascimento2810/Lucas_Nascimento.
+3. Nome sugerido: lucas-nascimento-portfolio.
+4. Em Root Directory, selecione portfolio.
+5. Em Framework Preset, escolha Other (site HTML/CSS/JS estático).
 6. Deixe Build Command e Output Directory vazios e publique.
-7. Atualizações futuras nesta pasta na branch `main` serão publicadas automaticamente.
+7. Commits na branch main serão publicados automaticamente com a integração Git.
 
-## Projetos
+Não requer npm, banco de dados, tokens ou variáveis de ambiente.
 
-Os três cards atuais são ilustrações conceituais, marcadas no site como tal. Substitua as artes e descrições por cases reais com autorização dos clientes. Para uma evolução com WebGL Three.js, Next.js e galerias de vídeo, há uma versão-fonte separada preparada.
+## Projetos reais: fotos e vídeos
+
+1. Coloque as capas .webp e vídeos .mp4 em portfolio/projects/.
+2. Edite portfolio/showcase-data.js e substitua o array vazio por objetos no formato:
+
+```js
+window.PORTFOLIO_PROJECTS = [
+  {
+    id: 'meu-projeto',
+    title: 'Nome do projeto',
+    category: 'SISTEMA WEB / 2026',
+    description: 'O problema e a solução desenvolvida.',
+    cover: './projects/capa.webp',
+    video: './projects/demo.mp4', // opcional
+    technologies: ['React', 'Next.js', 'Supabase'],
+    url: 'https://link-publico.com', // opcional
+    featured: true
+  }
+];
+```
+
+Quando a lista tiver projetos, o site troca os três mockups por uma galeria de cases reais, com detalhes, modal de imagem/vídeo e link para conhecer o projeto. Com lista vazia, os exemplos continuam identificados como conceituais. Não precisa reescrever o index.html.
+
+### Mídia e privacidade
+
+- Use capas otimizadas e vídeos compactados para não prejudicar o carregamento.
+- Remova dados sensíveis de telas, cadastros e gravações antes de publicar.
+- Peça autorização para divulgar marcas, prints e vídeos de clientes.
+
+## Organização
+
+- index.html: página principal
+- showcase-data.js: cadastro de projetos
+- showcase.js: galeria e modal de mídia
+- showcase.css: visual da galeria
+- ambient-gl.js: efeitos WebGL2, com fallback em CSS
+- favicon.svg: marca LN
 
 ## Contato
 
-O CTA atual abre o LinkedIn exibido no perfil fornecido pelo proprietário. Confirme o endereço antes de compartilhar publicamente. Quando você fornecer o WhatsApp ou email profissional, atualize o botão para o contato principal.
+O CTA abre o LinkedIn até que o proprietário confirme WhatsApp ou e-mail de contato comercial. Não armazene segredos no GitHub.
 
-## Tecnologias desta versão publicada
+## Compatibilidade
 
-HTML5, CSS3, JavaScript, CSS 3D/perspectiva, animações, IntersectionObserver e layout responsivo. Não precisa de dependências npm nem variáveis de ambiente.
+Efeitos WebGL são opcionais, desabilitados para celulares e para usuários que preferem movimento reduzido. Layout, navegação e CTA continuam funcionando sem WebGL.
