@@ -121,6 +121,7 @@
     body.append(make("small","",project.category || "PROJETO DIGITAL"),make("h3","",project.title),make("p","",project.description));
     const status = make("span","real-case-status",project.status || "");
     body.append(status);
+    if (project.role) body.append(make("span","real-case-role","MINHA ATUAÇÃO  /  "+project.role));
     const actions=make("div","real-case-actions");
     const more=make("button","real-case-button","↗");
     more.type="button";

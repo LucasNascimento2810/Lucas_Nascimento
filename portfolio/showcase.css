@@ -104,3 +104,52 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #b8
 @media(max-width:750px){header nav a{min-height:44px;font-size:13px}.fallback-card:first-child{grid-column:auto}.fallback-image,.fallback-card:first-child .fallback-image{height:260px}.fallback-info{padding:22px}.hero-bottom{gap:10px}.nav-cta{font-size:10px}}
 @media(max-width:400px){.hero h1{font-size:12.6vw}.contact-bottom{flex-direction:column;gap:24px}.contact-bottom p{max-width:100%}}
 @media(prefers-reduced-motion:reduce){.fallback-image img{transition:none!important}}
+
+/* Nova apresentação para parceiros: preserva o sistema visual verde/escuro. */
+header nav{gap:clamp(15px,2.5vw,42px)}
+.nav-cta{white-space:nowrap}
+.hero-lead p{max-width:560px}
+.partnerships{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 10%,#203321 0%,#101911 44%,#0b110e 100%);color:#edf5e9;padding:105px 0 120px}
+.partnerships .section-top{border-color:#3b513c}
+.partner-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.75fr);gap:8%;padding:83px 0 60px;align-items:end}
+.partner-kicker{font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.18em;color:#c9f59a;margin-bottom:26px;text-transform:uppercase}
+.partner-hero h2{font:700 clamp(56px,7.4vw,115px)/.92 'Space Grotesk',sans-serif;letter-spacing:-.087em;margin:0}
+.partner-hero h2 em{color:#d4fc79;font-weight:500}
+.partner-hero-side{padding-bottom:6px}
+.partner-hero-side>p{font-size:16px;line-height:1.9;color:#b9c9b5;margin:0 0 30px}
+.partner-cta{display:inline-flex;justify-content:space-between;align-items:center;gap:24px;background:#d4fc79;color:#152216;padding:19px 23px;font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.04em;transition:transform .2s,background .2s}
+.partner-cta:hover{transform:translateY(-3px);background:#ebffbc}
+.partner-cta span{font-size:21px;line-height:1}
+.partner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.partner-card{border:1px solid #405443;background:#1a281d;padding:34px 31px 42px;min-width:0;transition:border-color .2s,transform .2s}
+.partner-card:hover{border-color:#bce787;transform:translateY(-3px)}
+.partner-card-num{display:block;font:700 11px 'Space Grotesk',sans-serif;letter-spacing:.12em;color:#c4ed8b;margin-bottom:55px}
+.partner-card h3{font:700 clamp(23px,2.2vw,34px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.055em;margin:0 0 18px}
+.partner-card p{font-size:14px;line-height:1.8;color:#b4c2af;margin:0}
+.partner-process{margin-top:100px;scroll-margin-top:105px}
+.process-head{display:flex;align-items:end;justify-content:space-between;gap:50px;padding-bottom:35px}
+.process-head h3{font:700 clamp(34px,4.4vw,67px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.065em;margin:0}
+.process-head h3 em{color:#d4fc79;font-weight:500}
+.process-head>p{max-width:350px;color:#a7bda0;line-height:1.8;font-size:13px;margin:0 0 3px}
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;list-style:none;padding:0;margin:0}
+.process-grid li{border-top:1px solid #6e906d;padding:26px 10px 0 0}
+.process-grid li>span{display:block;color:#c1eb8a;font:700 10px 'Space Grotesk',sans-serif;letter-spacing:.12em;margin-bottom:24px}
+.process-grid h4{font:700 22px 'Space Grotesk',sans-serif;letter-spacing:-.04em;margin:0 0 14px}
+.process-grid p{font-size:13px;line-height:1.8;color:#b4c5ad;margin:0}
+.real-case-role{display:block;font:600 11px/1.55 'Space Grotesk',sans-serif;color:#466645;margin-top:11px;max-width:600px}
+.real-case-foot{min-height:282px}
+.real-case.featured .real-case-foot{min-height:210px}
+.fallback-role{display:block;color:#43603e;font:700 11px/1.6 'Space Grotesk',sans-serif;margin:12px 0}
+.contact-bottom{margin-bottom:55px}
+.contact-direct{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0 0 105px}
+.contact-method{border:1px solid #4d664d;padding:29px 34px 34px;position:relative;display:flex;align-items:start;flex-direction:column;gap:13px;background:#17231a;min-width:0;transition:background .2s,border-color .2s}
+.contact-method:hover{background:#1e3221;border-color:#b5ed82}
+.contact-method-label{font:700 10px 'Space Grotesk',sans-serif;color:#bde887;letter-spacing:.14em;margin-bottom:26px}
+.contact-method strong{font:700 clamp(23px,3vw,36px) 'Space Grotesk',sans-serif;letter-spacing:-.05em}
+.contact-method-value{color:#c4d2c0;font-size:14px;overflow-wrap:anywhere}
+.contact-method-icon{position:absolute;top:26px;right:30px;color:#d4fc79;font-size:24px}
+.footer .socials{flex-wrap:wrap;gap:12px 25px}
+@media(max-width:1100px){.partner-hero{gap:5%}.partner-hero h2{font-size:clamp(56px,7vw,95px)}.partner-card{padding:25px}.contact-method{padding:25px}}
+@media(max-width:800px){.partner-hero{grid-template-columns:1fr;padding:66px 0 50px;gap:35px}.partner-hero h2{font-size:clamp(50px,10vw,85px)}.partner-hero-side{max-width:630px}.partner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.partner-grid .partner-card:last-child{grid-column:1/-1}.partner-card-num{margin-bottom:35px}.process-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:35px}.process-head{align-items:start;flex-direction:column;gap:15px}.contact-direct{gap:12px}}
+@media(max-width:740px){.real-case-foot,.real-case.featured .real-case-foot{min-height:0}.real-case-role{font-size:10px}.partnerships{padding:75px 0 88px}.partner-hero{padding:55px 0 45px}.partner-hero h2{font-size:clamp(49px,10.4vw,76px)}.partner-hero-side>p{font-size:14px}.partner-cta{font-size:10px;width:100%}.contact-direct{grid-template-columns:1fr;margin-bottom:65px}.contact-method-label{margin-bottom:11px}.contact-method strong{font-size:27px}.contact-method{padding:23px 24px 28px}}
+@media(max-width:520px){.partner-grid{grid-template-columns:1fr}.partner-grid .partner-card:last-child{grid-column:auto}.partner-card{padding:26px}.partner-card-num{margin-bottom:28px}.partner-process{margin-top:68px}.process-grid{grid-template-columns:1fr;gap:24px}.process-grid li{padding:19px 0 0}.process-grid li>span{margin-bottom:10px}.process-head h3{font-size:clamp(31px,8vw,50px)}.partner-hero h2{font-size:clamp(42px,10.9vw,64px)}.partner-hero-side>p{line-height:1.75}.contact-method-value{font-size:13px}}
